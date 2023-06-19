@@ -30,12 +30,36 @@ Press [space] to restart, [e] to edit command line args (currently ''), [r] to r
 Press q + ENTER to exit quarkusDev for the client.
 
 ```bash
-2023-06-19 11:02:37,299 ERROR [io.qua.oid.dep.dev.key.KeycloakDevServicesProcessor] (Quarkus Shutdown Thread) Failed to stop Keycloak container [Error Occurred After Shutdown]: java.lang.NullPointerException: Cannot invoke "java.io.Closeable.close()" because "this.closeable" is null
+2023-06-19 11:17:14,747 WARN  [io.qua.ver.htt.run.VertxHttpRecorder] (Quarkus Shutdown Thread) Failed to undeploy deployment : java.util.concurrent.RejectedExecutionException: event executor terminated
+        at io.netty.util.concurrent.SingleThreadEventExecutor.reject(SingleThreadEventExecutor.java:934)
+        at io.netty.util.concurrent.SingleThreadEventExecutor.offerTask(SingleThreadEventExecutor.java:351)
+        at io.netty.util.concurrent.SingleThreadEventExecutor.addTask(SingleThreadEventExecutor.java:344)
+        at io.netty.util.concurrent.SingleThreadEventExecutor.execute(SingleThreadEventExecutor.java:836)
+        at io.netty.util.concurrent.SingleThreadEventExecutor.execute0(SingleThreadEventExecutor.java:827)
+        at io.netty.util.concurrent.SingleThreadEventExecutor.execute(SingleThreadEventExecutor.java:817)
+        at io.vertx.core.impl.EventLoopContext.execute(EventLoopContext.java:88)
+        at io.vertx.core.impl.ContextBase.execute(ContextBase.java:225)
+        at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:51)
+        at io.vertx.core.impl.future.SucceededFuture.addListener(SucceededFuture.java:88)
+        at io.vertx.core.impl.future.FutureBase.compose(FutureBase.java:84)
+        at io.vertx.core.impl.future.SucceededFuture.compose(SucceededFuture.java:27)
+        at io.vertx.core.Future.compose(Future.java:360)
+        at io.vertx.core.impl.VertxImpl.undeploy(VertxImpl.java:750)
+        at io.vertx.core.impl.VertxImpl.undeploy(VertxImpl.java:755)
+        at io.quarkus.vertx.http.runtime.VertxHttpRecorder$12.run(VertxHttpRecorder.java:814)
+        at io.quarkus.vertx.http.runtime.VertxHttpRecorder.shutDownDevMode(VertxHttpRecorder.java:229)
+        at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup.close(VertxHttpHotReplacementSetup.java:215)
+        at io.quarkus.deployment.dev.IsolatedDevModeMain.close(IsolatedDevModeMain.java:351)
+        at io.quarkus.deployment.dev.IsolatedDevModeMain$6.run(IsolatedDevModeMain.java:466)
+        at java.base/java.lang.Thread.run(Thread.java:833)
+
+Press [space] to restart, [e] to edit command line args (currently ''), [h] for more options>
+2023-06-19 11:17:14,748 ERROR [io.qua.oid.dep.dev.key.KeycloakDevServicesProcessor] (Quarkus Shutdown Thread) Failed to stop Keycloak container [Error Occurred After Shutdown]: java.lang.NullPointerException: Cannot invoke "java.io.Closeable.close()" because "this.closeable" is null
         at io.quarkus.deployment.builditem.DevServicesResultBuildItem$RunningDevService.close(DevServicesResultBuildItem.java:90)
         at io.quarkus.oidc.deployment.devservices.keycloak.KeycloakDevServicesProcessor$1.run(KeycloakDevServicesProcessor.java:217)
         at io.quarkus.deployment.builditem.CuratedApplicationShutdownBuildItem$1.run(CuratedApplicationShutdownBuildItem.java:48)
         at io.quarkus.bootstrap.classloading.QuarkusClassLoader.close(QuarkusClassLoader.java:617)
-        at io.quarkus.bootstrap.app.CuratedApplication.close(CuratedApplication.java:418)
+        at io.quarkus.bootstrap.app.CuratedApplication.close(CuratedApplication.java:407)
         at io.quarkus.deployment.dev.IsolatedDevModeMain.close(IsolatedDevModeMain.java:356)
         at io.quarkus.deployment.dev.IsolatedDevModeMain$6.run(IsolatedDevModeMain.java:466)
         at java.base/java.lang.Thread.run(Thread.java:833)
@@ -47,8 +71,8 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 See https://docs.gradle.org/8.1.1/userguide/command_line_interface.html#sec:command_line_warnings
 
-BUILD SUCCESSFUL in 4m 44s
-6 actionable tasks: 2 executed, 4 up-to-date
+BUILD SUCCESSFUL in 21s
+6 actionable tasks: 1 executed, 5 up-to-date
 $
 ```
 
