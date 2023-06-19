@@ -1,0 +1,23 @@
+plugins {
+  id "io.quarkus" version "${quarkusVersion}"
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {
+  implementation enforcedPlatform("io.quarkus.platform:quarkus-bom:${quarkusVersion}")
+
+  implementation 'io.quarkus:quarkus-arc'
+  implementation "io.quarkus:quarkus-config-yaml"
+
+  implementation "io.quarkus:quarkus-jackson"
+  implementation "io.quarkus:quarkus-oidc-client-filter"
+  implementation "io.quarkus:quarkus-rest-client-jackson"
+
+  quarkusDev "io.quarkus:quarkus-oidc"
+
+  testImplementation 'io.quarkus:quarkus-junit5'
+}

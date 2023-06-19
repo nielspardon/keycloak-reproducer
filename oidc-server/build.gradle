@@ -1,0 +1,26 @@
+plugins {
+  id "io.quarkus" version "${quarkusVersion}"
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {
+  implementation enforcedPlatform("io.quarkus.platform:quarkus-bom:${quarkusVersion}")
+
+  implementation 'io.quarkus:quarkus-arc'
+  implementation "io.quarkus:quarkus-config-yaml"
+
+  implementation 'io.quarkus:quarkus-resteasy-reactive'
+  implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
+
+  implementation 'io.quarkus:quarkus-smallrye-openapi'
+
+  implementation "io.quarkus:quarkus-oidc"
+
+  testImplementation 'io.quarkus:quarkus-junit5'
+  testImplementation "io.quarkus:quarkus-test-security-oidc"
+  testImplementation "io.quarkus:quarkus-test-keycloak-server"
+}

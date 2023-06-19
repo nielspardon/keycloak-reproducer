@@ -1,0 +1,12 @@
+"%dev":
+  quarkus:
+    oidc:
+      devui:
+        grant:
+          type: code
+    keycloak:
+      devservices:
+        users:
+          user: passw0rd
+        roles:
+          user: user

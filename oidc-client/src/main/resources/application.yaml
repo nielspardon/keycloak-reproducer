@@ -1,0 +1,28 @@
+"%dev":
+  quarkus:
+    http:
+      # random HTTP port to avoid collision with gateway or other connectors
+      port: 0
+    keycloak:
+      devservices:
+        enabled: true
+        shared: true
+        # realm already created by gateway
+        create-realm: false
+    oidc-client:
+      enabled: true
+      auth-server-url: ${quarkus.oidc.auth-server-url}
+      # set client-id to the one created by gateway
+      client-id: quarkus-app
+      # set secret to the one created by gateway
+      credentials:
+        secret: secret
+      grant:
+        type: PASSWORD
+      grant-options:
+        password:
+          username: user
+          password: passw0rd
+    rest-client:
+      test:
+        url: http://localhost:8080
